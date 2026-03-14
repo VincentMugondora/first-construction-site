@@ -1,106 +1,75 @@
 import React from 'react'
-import { ArrowUpRight } from 'lucide-react'
 
-const IMGS = {
-  pill:       'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=80',
-  bottomLeft: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=80',
-  middle:     'https://images.unsplash.com/photo-1587162146766-e06b1189b907?w=700&q=80',
-  right:      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80',
+const IMAGES = {
+  tall:        'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
+  topRight:    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80',
+  bottomRight: 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb38?w=500&q=80',
+  inline:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=120&q=80',
 }
 
-const Hero = () => {
-  return (
-    <section className="bg-white pt-10 pb-16 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+const Hero = () => (
+  <section className="hero" id="hero">
+    <div className="container hero__inner">
 
-        {/* ── LEFT COLUMN (col-span-5) ── */}
-        <div className="lg:col-span-5 flex flex-col gap-5">
+      {/* ── LEFT ── */}
+      <div className="hero__left">
+        <span className="eyebrow">⬛ Premier Construction Group</span>
 
-          {/* Heading with inline pill */}
-          <h1 className="text-5xl md:text-6xl lg:text-[5rem] font-black text-[#111827] leading-[1.08] tracking-tight">
-            Let's Building{' '}
-            <span
-              className="inline-flex items-center align-middle overflow-hidden bg-blue-500"
-              style={{
-                width: '6.75rem',
-                height: '2.9rem',
-                borderRadius: '9999px',
-                verticalAlign: 'middle',
-                display: 'inline-flex',
-                flexShrink: 0,
-                margin: '0 0.15rem',
-              }}
-            >
-              <img src={IMGS.pill} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </span>{' '}
-            Your Vision Into Reality.
-          </h1>
+        <h1 className="hero__heading">
+          Let's Building Your{' '}
+          <span style={{ whiteSpace: 'nowrap' }}>
+            <span className="inline-icon">
+              <img src={IMAGES.inline} alt="construction" />
+            </span>
+            Vision
+          </span>
+          {' '}Into Reality
+        </h1>
 
-          {/* Sub-text */}
-          <p className="text-slate-400 text-base leading-relaxed max-w-[300px]">
-            Where Precision Meets Passion, Building Tomorrow's Landscape with Innovation and Excellence
-          </p>
+        <p className="hero__sub">
+          We transform architectural blueprints into landmark structures — delivering
+          precision, craftsmanship, and excellence on every project.
+        </p>
 
-          {/* Buttons */}
-          <div className="flex items-center gap-3">
-            <button className="bg-[#111827] text-white rounded-full px-6 py-3 flex items-center gap-1.5 text-sm font-semibold hover:bg-slate-700 transition-all">
-              Lean more <ArrowUpRight size={15} strokeWidth={2.5} />
-            </button>
-            <button className="border border-slate-300 rounded-full px-6 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50 transition-all">
-              Contact us
-            </button>
-          </div>
-
-          {/* Bottom landscape image */}
-          <div
-            className="w-full overflow-hidden mt-3"
-            style={{ height: '200px', borderRadius: '1.5rem' }}
-          >
-            <img src={IMGS.bottomLeft} alt="Low-angle building" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
-          </div>
-
+        <div className="hero__actions">
+          <a href="#stats" className="btn-primary">
+            Explore Our Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#contact" className="btn-outline">Get a Quote</a>
         </div>
 
-        {/* ── MIDDLE COLUMN (col-span-4) — offset lower ── */}
-        <div className="lg:col-span-4 lg:pt-[11rem]">
-          <div
-            className="w-full overflow-hidden shadow-xl"
-            style={{ height: '520px', borderRadius: '3rem' }}
-          >
-            <img src={IMGS.middle} alt="Modern condo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+        {/* Trust badge */}
+        <div className="hero__badge">
+          <div className="hero__badge-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div className="hero__badge-text">
+            <strong>ISO 9001 Certified</strong>
+            25+ Years of Trusted Excellence
           </div>
         </div>
-
-        {/* ── RIGHT COLUMN (col-span-3) — starts at top ── */}
-        <div className="lg:col-span-3 flex flex-col gap-5">
-          <div
-            className="w-full overflow-hidden shadow-lg"
-            style={{ height: '380px', borderRadius: '2rem' }}
-          >
-            <img src={IMGS.right} alt="Glass tower" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
-          </div>
-
-          {/* Caption */}
-          <div className="flex flex-col gap-3">
-            <p className="text-slate-500 text-base leading-snug">
-              Cultivating Tomorrow's Eden,<br />
-              Where Nature and Design<br />
-              Converge in Harmony
-            </p>
-            <button
-              className="self-start font-semibold text-slate-800 text-sm pb-0.5 transition-all"
-              style={{ borderBottom: '1.5px solid #cbd5e1' }}
-              onMouseEnter={e => e.currentTarget.style.borderBottomColor = '#1e293b'}
-              onMouseLeave={e => e.currentTarget.style.borderBottomColor = '#cbd5e1'}
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-
       </div>
-    </section>
-  )
-}
+
+      {/* ── RIGHT — masonry grid ── */}
+      <div className="hero__right">
+        <div className="hero__img--tall">
+          <img src={IMAGES.tall} alt="Modern high-rise building" loading="lazy" />
+        </div>
+        <div className="hero__img--top-right">
+          <img src={IMAGES.topRight} alt="Construction site" loading="lazy" />
+        </div>
+        <div className="hero__img--bottom-right">
+          <img src={IMAGES.bottomRight} alt="Architectural interior" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+)
 
 export default Hero
